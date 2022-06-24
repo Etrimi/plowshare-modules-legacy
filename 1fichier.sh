@@ -148,7 +148,7 @@ MODULE_1FICHIER_PROBE_OPTIONS=""
         return 0
     fi
 
-    PAGE=$(curl -b 'LG=en' "$URL") || return
+    PAGE=$(curl -b "$COOKIE_FILE" -b 'LG=en' "$URL") || return
 
     # Location: http://www.1fichier.com/?c=SCAN
     if match 'MOVED - TEMPORARY_REDIRECT' "$PAGE"; then
